@@ -12,10 +12,10 @@ System.out.println(
   new Table(
     new HeadLine("Here", "is", "some", "data"),
     new Content(
-      new Row("first", "row", here", ":D),
-      new Row("second", row", here", "...")
-    );
-  );
+      new Row("first", "row", "here", ":D"),
+      new Row("second", "row", "here", "...")
+    )
+  )
 );
 ```
 result:
