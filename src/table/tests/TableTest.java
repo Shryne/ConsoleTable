@@ -1,6 +1,9 @@
 package table.tests;
 
 import org.junit.Test;
+import table.Table;
+
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * Contains all tests for the Table class.
@@ -8,21 +11,21 @@ import org.junit.Test;
 class TableTest {
     @Test
     public void emptyTable() {
+        //assertEquals("", new Table(new Content()).toString());
+    }
+
+    @Test
+    public void noHeadlineOneData() {
 
     }
 
     @Test
-    public void noHeadLineOneData() {
+    public void oneHeadlineNoData() {
 
     }
 
     @Test
-    public void oneHeadLineNoData() {
-
-    }
-
-    @Test
-    public void oneHeadLineOneData() {
+    public void oneHeadlineOneData() {
 
     }
 
@@ -32,17 +35,17 @@ class TableTest {
     }
 
     @Test
-    public void rightHeadLine() {
+    public void rightHeadline() {
 
     }
 
     @Test
-    public void leftHeadLine() {
+    public void leftHeadline() {
 
     }
 
     @Test
-    public void allHeadLinesNoData() {
+    public void allHeadlinesNoData() {
 
     }
 
@@ -72,17 +75,17 @@ class TableTest {
     }
 
     @Test
-    public void headLineAlignment() {
+    public void headlineAlignment() {
 
     }
 
     @Test
-    public void headLineDataWidth() {
+    public void headlineDataWidth() {
 
     }
 
     @Test
-    public void headLineDataAlignment() {
+    public void headlineDataAlignment() {
 
     }
 
