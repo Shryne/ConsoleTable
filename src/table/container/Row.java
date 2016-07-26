@@ -1,6 +1,7 @@
 package table.container;
 
 import table.Alignment;
+import table.Table;
 import table.data.Cell;
 
 import java.util.ArrayList;
@@ -20,22 +21,22 @@ public final class Row {
     private Row(Alignment alignment, List<Cell> cells) {
         this.alignment = alignment;
         this.cells = isAligned() ? alignedCells(cells, alignment) : cells;
-        formattedText = cellsText(cells);
+        formattedText = cellsText(this.cells);
     }
 
-    public Row row(Alignment alignment, Cell... data) {
+    public static Row row(Alignment alignment, Cell... data) {
         return new Row(alignment, Arrays.asList(data));
     }
 
-    public Row row(Alignment alignment, String... texts) {
+    public static Row row(Alignment alignment, String... texts) {
         return row(alignment, texts);
     }
 
-    public Row row(String... texts) {
+    public static Row row(String... texts) {
         return row(Alignment.DEFAULT, texts);
     }
 
-    public Row row(Cell... data) {
+    public static Row row(Cell... data) {
         return row(Alignment.DEFAULT, data);
     }
 
@@ -75,8 +76,8 @@ public final class Row {
     }
 
     private static String cellsText(List<Cell> cells) {
-        StringBuilder cellsText = new StringBuilder();
-        cells.forEach(c -> cellsText.append(c.toString()));
+        StringBuilder cellsText = new StringBuilder("|");
+        cells.forEach(c -> cellsText.append(c.toString()).append(Table.COLUMN_DELIMITER));
 
         return cellsText.toString();
     }

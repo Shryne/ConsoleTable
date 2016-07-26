@@ -17,13 +17,15 @@ package table;
  * and {@link table.container.Headline}.
  */
 public final class Table {
-    private static final String COLUMN_DELIMETER = "|";
+    public static final String COLUMN_DELIMITER = "|";
 
     public static void main(String[] args) {
         String output = String.format("%-5s%-3s", "hey", "a");
         String secondOutput = String.format("%-5s%-3s", "hey", "a");
 
-        System.out.printf(output + "|" + secondOutput);
+        System.out.println(output + "|" + secondOutput);
+        System.out.printf(String.format("%-10s", "   Hey"));
+        System.out.print("A");
 
         Alignment alignment = Alignment.CENTER;
     }

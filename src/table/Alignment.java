@@ -5,7 +5,7 @@ package table;
  */
 public enum Alignment {
     CENTER((len, width) -> timesSpaces((width - len) / 2)),
-    LEFT((len, width) -> " "),
+    LEFT((len, width) -> ""),
     RIGHT((len, width) -> timesSpaces(width - len)),
     DEFAULT((len, width) -> LEFT.align(len, width));
 

@@ -10,6 +10,6 @@ public class ContentArea {
     }
 
     public static ContentArea contentArea() {
-
+        return new ContentArea();
     }
 }

@@ -20,8 +20,10 @@ public final class Cell {
     private Cell(String text, int minWidth, Alignment alignment) {
         this.alignment = alignment;
         this.minWidth = minWidth;
-        this.text = alignment.align(text.length(), minWidth) + text;
-        this.formattedText = String.format("%s-" + minWidth, text);
+        this.text = text;
+        this.formattedText = String.format(
+                "%-" + minWidth + "s", alignment.align(text.length(), minWidth) + text
+        );
     }
 
     public static Cell cell(String text, int minWidth, Alignment alignment) {
@@ -41,7 +43,7 @@ public final class Cell {
     }
 
     public static Cell cell(Cell oldCell, Alignment newAlignment) {
-        return cell(oldCell.text, newAlignment);
+        return cell(oldCell.text, oldCell.minWidth, newAlignment);
     }
 
     /**

@@ -3,8 +3,8 @@ package table.container;
 /**
  *
  */
-public class HeadLine {
-    public static enum Position {
+public final class Headline {
+    public enum Position {
 
     }
 }
