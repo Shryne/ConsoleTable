@@ -40,6 +40,10 @@ public final class Row {
         return row(Alignment.DEFAULT, data);
     }
 
+    public static Row row(Row oldRow, Alignment newAlignment) {
+        return new Row(newAlignment, oldRow.cells);
+    }
+
     @Override
     public String toString() {
         return formattedText;

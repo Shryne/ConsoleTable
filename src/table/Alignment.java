@@ -40,6 +40,10 @@ public enum Alignment {
         }
         return result.toString();
     }
+
+    public boolean isAligned() {
+        return this != DEFAULT;
+    }
 }
 
 /**
