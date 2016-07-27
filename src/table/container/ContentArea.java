@@ -28,6 +28,10 @@ public class ContentArea {
         return contentArea(Alignment.DEFAULT, rows);
     }
 
+    public static ContentArea contentArea(ContentArea oldContentArea, Alignment newAlignment) {
+        return new ContentArea(oldContentArea.rows, newAlignment);
+    }
+
     public boolean isAligned() {
         return alignment != Alignment.DEFAULT;
     }
