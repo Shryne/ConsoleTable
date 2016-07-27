@@ -52,6 +52,9 @@ public final class Row {
         return alignment != Alignment.DEFAULT;
     }
 
+    List<Cell> getCells() {
+        return cells;
+    }
     // ####################################################
     // private helper
     // ####################################################

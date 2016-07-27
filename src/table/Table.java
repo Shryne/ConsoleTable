@@ -18,15 +18,9 @@ package table;
  */
 public final class Table {
     public static final String COLUMN_DELIMITER = "|";
+    private static final String HEADLINE_DELIMITER = "+";
 
-    public static void main(String[] args) {
-        String output = String.format("%-5s%-3s", "hey", "a");
-        String secondOutput = String.format("%-5s%-3s", "hey", "a");
-
-        System.out.println(output + "|" + secondOutput);
-        System.out.printf(String.format("%-10s", "   Hey"));
-        System.out.print("A");
-
-        Alignment alignment = Alignment.CENTER;
+    private Table() {
+        
     }
 }

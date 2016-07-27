@@ -5,6 +5,7 @@ package table.container;
  */
 public class ContentArea {
 
+
     private ContentArea() {
 
     }
