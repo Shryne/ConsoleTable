@@ -34,12 +34,17 @@ public final class Table {
         String contentAreaString =
                 (contentArea.isAligned() ? contentArea(contentArea, alignment) : contentArea).toString();
 
-        tableText = headlineString + headlineRow(headlineString.length()) + contentAreaString;
+        tableText = headlineString + "\n" + headlineRow(headlineString.length()) + "\n" + contentAreaString;
     }
 
     public static Table table(Alignment alignment, Headline headline, ContentArea contentArea) {
         return new Table(alignment, headline, contentArea);
     }
+
+    public static Table table(Headline headline, ContentArea contentArea) {
+        return new Table(Alignment.DEFAULT, headline, contentArea);
+    }
+
 
     @Override
     public String toString() {

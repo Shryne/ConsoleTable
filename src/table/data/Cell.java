@@ -46,11 +46,26 @@ public final class Cell {
         return cell(oldCell.text, oldCell.minWidth, newAlignment);
     }
 
+    public static Cell cell(Cell oldCell, int newWidth) {
+        if (oldCell.minWidth < newWidth) {
+            return cell(oldCell.text, newWidth, oldCell.alignment);
+        } else if (oldCell.minWidth == newWidth) {
+            return oldCell;
+        } else {
+            throw new IllegalArgumentException(String.format("The old width (%d) has to be" +
+                    " smaller than the new one (%d", oldCell.minWidth, newWidth));
+        }
+    }
+
     /**
      * @return false when the alignment is DEFAULT, otherwise true.
      */
     public boolean isAligned() {
         return alignment != Alignment.DEFAULT;
+    }
+
+    public int width() {
+        return minWidth;
     }
 
     @Override

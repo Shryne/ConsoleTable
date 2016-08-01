@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static table.container.Row.row;
 import static table.data.Cell.cell;
 
 /**
@@ -43,7 +44,11 @@ public final class Headline {
     }
 
     public static Headline headline(Row row) {
-        return new Headline(row, Position.TOP);
+        return headline(row, Position.TOP);
+    }
+
+    public static Headline headline(Headline oldHeadline, Alignment newAlignment) {
+        return headline(row(oldHeadline.row, newAlignment), oldHeadline.position);
     }
 
     public Position getPosition() {

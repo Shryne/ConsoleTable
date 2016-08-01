@@ -29,7 +29,7 @@ public final class Row {
     }
 
     public static Row row(Alignment alignment, String... texts) {
-        return row(alignment, texts);
+        return new Row(alignment, stringArrayToCellList(texts));
     }
 
     public static Row row(String... texts) {
@@ -42,6 +42,28 @@ public final class Row {
 
     public static Row row(Row oldRow, Alignment newAlignment) {
         return new Row(newAlignment, oldRow.cells);
+    }
+
+    public static Row row(Row oldRow, int newColumnAmount) {
+        if (oldRow.columnAmount() < newColumnAmount) {
+            List<Cell> cells = new ArrayList<>(oldRow.cells.size());
+            cells.addAll(emptyCells(newColumnAmount - cells.size()));
+
+            return new Row(oldRow.alignment, cells);
+        } else if ( oldRow.columnAmount() == newColumnAmount) {
+            return oldRow;
+        } else {
+            throw new IllegalArgumentException("newColumnAmount has to be greater" +
+                    "then rows current amount: " + newColumnAmount + " vs " + oldRow.columnAmount());
+        }
+    }
+
+    public static Row row(Row oldRow, List<Integer> newCellWidths) {
+        List<Cell> cells = new ArrayList<>(oldRow.cells.size());
+        for (int i = 0; i < newCellWidths.size(); i++) {
+            cells.add(cell(oldRow.getCells().get(i), newCellWidths.get(i)));
+        }
+        return new Row(oldRow.alignment, cells);
     }
 
     @Override
@@ -58,6 +80,10 @@ public final class Row {
 
     List<Cell> getCells() {
         return cells;
+    }
+
+    public int columnAmount() {
+        return cells.size();
     }
     // ####################################################
     // private helper
@@ -87,5 +113,13 @@ public final class Row {
         cells.forEach(c -> cellsText.append(c.toString()).append(Table.COLUMN_DELIMITER));
 
         return cellsText.toString();
+    }
+
+    private static List<Cell> emptyCells(int amount) {
+        List<Cell> emptyCells = new ArrayList<>(amount);
+        for (int i = 0; i < amount; i++) {
+            emptyCells.add(cell(""));
+        }
+        return emptyCells;
     }
 }
