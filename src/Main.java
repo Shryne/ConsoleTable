@@ -30,7 +30,7 @@ public class Main {
                         ),
                         contentArea(
                                 row(Alignment.CENTER, cell("secando"), cell(":D", 5), cell("X, lol", 14)),
-                                row(cell("Nr", 12), cell("s", 7)),
+                                row(Alignment.CENTER, cell("Nr", 12)),
                                 row(Alignment.CENTER, cell("secdo", 13), cell(":D", 5))
                         )
                 )

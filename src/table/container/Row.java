@@ -46,7 +46,7 @@ public final class Row {
 
     public static Row row(Row oldRow, int newColumnAmount) {
         if (oldRow.columnAmount() < newColumnAmount) {
-            List<Cell> cells = new ArrayList<>(oldRow.cells.size());
+            List<Cell> cells = new ArrayList<>(oldRow.cells);
             cells.addAll(emptyCells(newColumnAmount - cells.size()));
 
             return new Row(oldRow.alignment, cells);
