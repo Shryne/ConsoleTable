@@ -18,11 +18,17 @@ public final class Cell {
     // methods
     // ####################################################
     private Cell(String text, int minWidth, Alignment alignment) {
+        if (minWidth < 1) throw new IllegalArgumentException(
+                String.format("minWidth can't be lower than 1 but is: %d, text: %s, %s",
+                        minWidth, text, alignment)
+        );
+
         this.alignment = alignment;
         this.minWidth = minWidth;
         this.text = text;
         this.formattedText = String.format(
-                "%-" + minWidth + "s", alignment.align(text.length(), minWidth) + text
+                String.format("%%-%ds", minWidth),
+                alignment.align(text.length(), minWidth) + text
         );
     }
 

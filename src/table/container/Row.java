@@ -118,7 +118,7 @@ public final class Row {
     private static List<Cell> emptyCells(int amount) {
         List<Cell> emptyCells = new ArrayList<>(amount);
         for (int i = 0; i < amount; i++) {
-            emptyCells.add(cell(""));
+            emptyCells.add(cell(" "));
         }
         return emptyCells;
     }
