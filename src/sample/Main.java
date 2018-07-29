@@ -1,3 +1,5 @@
+package sample;
+
 import table.Alignment;
 import table.container.Row;
 import table.data.Cell;

@@ -1,11 +1,9 @@
 package table.container;
 
-import javafx.geometry.Pos;
 import table.Alignment;
 import table.data.Cell;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static table.container.Row.row;
