@@ -13,6 +13,7 @@ import static table.data.Cell.cell;
 import static table.Table.table;
 
 public class Main {
+    public static final String ANSI_GREEN_BACKGROUND = "\u001B[35m";
 
     public static void main(String[] args) {
         /*
@@ -37,5 +38,16 @@ public class Main {
                         )
                 )
         );
+
+        /*
+        new Table(
+            new Headline(
+
+            ),
+            new ContentArea(
+
+            )
+        );
+         */
     }
 }
