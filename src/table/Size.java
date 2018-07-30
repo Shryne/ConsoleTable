@@ -6,18 +6,30 @@ package table;
  * <p>This class is immutable and thread-safe.</p>
  */
 public final class Size {
-    private final int width;
-    private final int height;
+    private final Nat width;
+    private final Nat height;
+
+    public Size(int width, int height) {
+        this(
+                new Nat(width),
+                new Nat(height)
+        );
+    }
 
     /**
-     *
-     * @param width
-     * @param height
+     * Primary constructor.
      * @throws IllegalArgumentException if the values are smaller than 0.
      */
-    public Size(int width, int height) {
-
+    public Size(Nat width, Nat height) {
         this.width = width;
         this.height = height;
+    }
+
+    public Nat width() {
+        return width;
+    }
+
+    public Nat height() {
+        return height;
     }
 }
