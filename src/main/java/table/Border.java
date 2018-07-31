@@ -17,11 +17,11 @@ public final class Border {
         this.bottomCharacter = bottomCharacter;
     }
 
-    public String top(int width) {
+    public String top(Nat width) {
         return repeatedCharacter(topCharacter, width);
     }
 
-    public String bottom(int width) {
+    public String bottom(Nat width) {
         return repeatedCharacter(bottomCharacter, width);
     }
 
@@ -33,9 +33,9 @@ public final class Border {
         return rightCharacter + "";
     }
 
-    private static String repeatedCharacter(char toRepeat, int times) {
+    private static String repeatedCharacter(char toRepeat, Nat times) {
         return new String(
-                new char[times]
+                new char[times.intValue()]
         ).replace("\0", toRepeat + "");
     }
 }

@@ -1,17 +1,5 @@
 package sample;
 
-import table.Alignment;
-import table.container.Row;
-import table.data.Cell;
-
-import java.util.ArrayList;
-
-import static table.container.Headline.headline;
-import static table.container.ContentArea.contentArea;
-import static table.container.Row.row;
-import static table.data.Cell.cell;
-import static table.Table.table;
-
 public class Main {
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[35m";
 
@@ -23,7 +11,6 @@ public class Main {
                 Cell.cell("Hey3", 30)
         ));
         System.out.println(Cell.cell("Hallo", 30, Alignment.RIGHT));
-        */
 
         System.out.printf("%%-%ds", 5, "dfs\n");
         System.out.println(
@@ -39,7 +26,6 @@ public class Main {
                 )
         );
 
-        /*
         new Table(
             new Headline(
 

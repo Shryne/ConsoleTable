@@ -10,8 +10,10 @@ import table.Table;
  */
 public final class TwoXTwo {
     public static void main(String[] args) {
+        /*
         new Table(
                 "name", "age", "Steve", 32
         ).printTo(System.out::println);
+        */
     }
 }
