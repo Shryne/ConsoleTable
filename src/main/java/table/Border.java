@@ -10,6 +10,11 @@ public final class Border {
     private final char rightCharacter;
     private final char bottomCharacter;
 
+    public Border() {
+        this('-', '|', '|', '-');
+    }
+
+    // TODO: The sides should probably get their own class, too
     public Border(char topCharacter, char leftCharacter, char rightCharacter, char bottomCharacter) {
         this.topCharacter = topCharacter;
         this.leftCharacter = leftCharacter;
@@ -33,6 +38,7 @@ public final class Border {
         return rightCharacter + "";
     }
 
+    // TODO: Create a class for that
     private static String repeatedCharacter(char toRepeat, Nat times) {
         return new String(
                 new char[times.intValue()]

@@ -1,4 +1,8 @@
 # ConsoleTable
+![coverage](https://sonarcloud.io/api/project_badges/measure?project=de.synth.console_table%3Aconsole_table&metric=alert_status
+)  
+
+
 This little libary contains some classes to create and show a table inside the console,
 as I sometimes need to view some of my results inside a table, but without taking this
 as a feature for the later user. 
