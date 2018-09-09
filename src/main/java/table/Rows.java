@@ -2,14 +2,25 @@ package table;
 
 import table.output.Media;
 
-public final class Rows {
+import java.util.Collection;
+import java.util.List;
 
+public final class Rows implements Content {
+    private final Collection<Row> rows;
 
-    public void printTo(Media media) {
-        // TODO: Implement it
+    public Rows(Row... rows) {
+        this(List.of(rows));
     }
 
-    public Nat maxWidth() {
-        return new Nat(0); // TODO: Implement it
+    public Rows(Collection<Row> rows) {
+        this.rows = rows;
+    }
+
+    @Override
+    public Nat width() {
+        return rows.stream()
+                .map(Row::width)
+                .max((a, b) -> Math.max(a.intValue(), b.intValue()))
+                .orElse(new Nat(0));
     }
 }

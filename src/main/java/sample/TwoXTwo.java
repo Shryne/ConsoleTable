@@ -1,11 +1,8 @@
 package sample;
 
+import table.Head;
 import table.Row;
-import table.Rows;
 import table.Table;
-
-import java.awt.geom.Rectangle2D;
-import java.util.Arrays;
 
 /**
  * Sample code to create this table:<br>

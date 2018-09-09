@@ -7,29 +7,30 @@ import table.output.Media;
  */
 public final class Table {
     private final Border border;
-    private final Rows rows;
+    private final Content content;
 
-    public Table(Rows rows) {
+    public Table(Content content) {
         this(
                 new Border(),
-                rows
+                content
         );
     }
 
     /**
      * Primary constructor.
      */
-    public Table(Border border, Rows rows) {
+    // TODO: Content should've methods, that are important for Table
+    public Table(Border border, Content content) {
         this.border = border;
-        this.rows = rows;
+        this.content = content;
     }
 
     public void printTo(Media media) {
         media.print(
                 String.join(
-                        border.top(rows.maxWidth()), "\n",
-                        rows.toString(),
-                        border.bottom(rows.maxWidth()), "\n"
+                        border.top(content.width()), "\n",
+                        content.toString(),
+                        border.bottom(content.width()), "\n"
                 )
         );
     }
