@@ -2,10 +2,7 @@ package table;
 
 import table.output.Media;
 
-/**
- *
- */
-public final class Table {
+public final class Table implements Content {
     private final Border border;
     private final Content content;
 
@@ -25,13 +22,16 @@ public final class Table {
         this.content = content;
     }
 
+    @Override
     public void printTo(Media media) {
+        /*
         media.print(
                 String.join(
                         border.top(content.width()), "\n",
                         content.toString(),
                         border.bottom(content.width()), "\n"
                 )
-        );
+        );*/
+        // TODO: Reimplement it
     }
 }

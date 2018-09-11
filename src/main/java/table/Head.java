@@ -1,5 +1,7 @@
 package table;
 
+import table.output.Media;
+
 public final class Head implements Content {
     private final Row row;
 
@@ -12,8 +14,7 @@ public final class Head implements Content {
     }
 
     @Override
-    public Nat width() {
+    public void printTo(Media media) {
         // TODO: Implement it
-        return null;
     }
 }

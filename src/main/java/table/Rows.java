@@ -16,11 +16,15 @@ public final class Rows implements Content {
         this.rows = rows;
     }
 
-    @Override
     public Nat width() {
         return rows.stream()
                 .map(Row::width)
                 .max((a, b) -> Math.max(a.intValue(), b.intValue()))
                 .orElse(new Nat(0));
+    }
+
+    @Override
+    public void printTo(Media media) {
+        // TODO: Implement it
     }
 }

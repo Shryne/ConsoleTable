@@ -1,5 +1,7 @@
 package table;
 
+import table.output.Media;
+
 public interface Content {
-    Nat width();
+    void printTo(Media media);
 }

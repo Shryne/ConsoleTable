@@ -1,17 +1,31 @@
 package table;
 
+import table.output.Media;
+
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
-public final class Row {
+public final class Row implements Content {
     private final Collection<String> cells;
+    private final char delimiter;
 
     public Row(String... strings) {
-        this(List.of(strings));
+        this(
+                '|',
+                List.of(strings)
+        );
     }
 
-    public Row(Collection<String> cells) {
+    public Row(char delimiter, String... strings) {
+        this(
+                delimiter,
+                List.of(strings)
+        );
+    }
+
+    public Row(char delimiter, Collection<String> cells) {
+        this.delimiter = delimiter;
         this.cells = cells;
     }
 
@@ -22,6 +36,18 @@ public final class Row {
                         .map(String::length)
                         .max(Comparator.naturalOrder())
                         .orElse(0)
+        );
+    }
+
+    @Override
+    public void printTo(Media media) {
+        final String d = String.valueOf(delimiter);
+        media.print(d);
+        cells.forEach(
+                it -> {
+                    media.print(it);
+                    media.print(d);
+                }
         );
     }
 }
