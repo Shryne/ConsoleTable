@@ -2,8 +2,6 @@ package table;
 
 import table.output.Media;
 
-import java.util.function.Consumer;
-
 /**
  * A media for text purposes. Takes the text to print and offers a way to check if it's right.
  * <p>This class is mutable and not thread-safe.</p>

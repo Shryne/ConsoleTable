@@ -6,10 +6,20 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Represents a row of a table.
+ * <p>Example: If the delimiter is "|" and the strings "1", "2", "3" are used, the result would be:</p>
+ * <p>|1|2|3|</p>
+ * <p>This class is immutable and thread-safe.</p>
+ */
 public final class Row implements Content {
     private final Collection<String> cells;
     private final char delimiter;
 
+    /**
+     * Uses '|' as the delimiter.
+     * @param strings of the row.
+     */
     public Row(String... strings) {
         this(
                 '|',
@@ -17,13 +27,22 @@ public final class Row implements Content {
         );
     }
 
-    public Row(char delimiter, String... strings) {
+    /**
+     * @param delimiter (/border) between the cells.
+     * @param cells of the row.
+     */
+    public Row(char delimiter, String... cells) {
         this(
                 delimiter,
-                List.of(strings)
+                List.of(cells)
         );
     }
 
+    /**
+     * Primary constructor.
+     * @param delimiter (/border) between the cells.
+     * @param cells of the row.
+     */
     public Row(char delimiter, Collection<String> cells) {
         this.delimiter = delimiter;
         this.cells = cells;
