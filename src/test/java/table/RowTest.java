@@ -2,30 +2,35 @@ package table;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 public class RowTest {
     @Test
     public void printsEmpty() {
         final var media = new FakeMedia();
         new Row('|').printTo(media);
-        assertEquals("", media.content());
+        assertThat(media.content(), equalTo(""));
     }
 
     @Test
     public void printsOne() {
         final var media = new FakeMedia();
         new Row('|', "Hallo").printTo(media);
-        assertEquals("| Hallo |", media.content());
+        assertThat(media.content(), equalTo("|Hallo|"));
     }
 
     @Test
     public void printTwo() {
-        // TODO: Implement it
+        final var media = new FakeMedia();
+        new Row('|', "1", "2").printTo(media);
+        assertThat(media.content(), equalTo("|1|2|"));
     }
 
     @Test
     public void printMultiple() {
-        // TODO: Implement it
+        final var media = new FakeMedia();
+        new Row('|', "1", "2", "3", "4", "5").printTo(media);
+        assertThat(media.content(), equalTo("|1|2|3|4|5|"));
     }
 }

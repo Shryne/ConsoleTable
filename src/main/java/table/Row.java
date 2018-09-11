@@ -41,13 +41,15 @@ public final class Row implements Content {
 
     @Override
     public void printTo(Media media) {
-        final String d = String.valueOf(delimiter);
-        media.print(d);
-        cells.forEach(
-                it -> {
-                    media.print(it);
-                    media.print(d);
-                }
-        );
+        if (!cells.isEmpty()) {
+            final String d = String.valueOf(delimiter);
+            media.print(d);
+            cells.forEach(
+                    it -> {
+                        media.print(it);
+                        media.print(d);
+                    }
+            );
+        }
     }
 }
