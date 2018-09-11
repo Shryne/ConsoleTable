@@ -1,8 +1,8 @@
 package table;
 
+import table.num.Nat;
 import table.output.Media;
 
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * <p>This class is immutable and thread-safe.</p>
  */
 public final class Row implements Content {
-    private final Collection<String> cells;
+    private final List<String> cells;
     private final char delimiter;
 
     /**
@@ -43,13 +43,13 @@ public final class Row implements Content {
      * @param delimiter (/border) between the cells.
      * @param cells of the row.
      */
-    public Row(char delimiter, Collection<String> cells) {
+    public Row(char delimiter, List<String> cells) {
         this.delimiter = delimiter;
         this.cells = cells;
     }
 
     // TODO: Test it
-    public Nat width() {
+    public Nat width(int cell) {
         return new Nat(
                 cells.stream()
                         .map(String::length)
@@ -68,6 +68,20 @@ public final class Row implements Content {
                         media.print(it);
                         media.print(d);
                     }
+            );
+        }
+    }
+
+    public Nat cellAmount() {
+        return new Nat(cells.size());
+    }
+
+    // TODO: Test it
+    // TODO: Think of a better way
+    public void printCell(int cell, Media media, Nat width) {
+        if (0 <= cell && cell < cells.size()) {
+            media.print(
+                    String.format("%" + width + "s", cells.get(cell))
             );
         }
     }

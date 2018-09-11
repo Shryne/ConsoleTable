@@ -1,5 +1,7 @@
 package table;
 
+import table.num.Nat;
+
 /**
  * The border of a cell.
  * <p>This class is immutable and thread-safe.</p>

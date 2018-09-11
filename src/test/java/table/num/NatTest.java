@@ -1,6 +1,7 @@
-package table;
+package table.num;
 
 import org.junit.Test;
+import table.num.Nat;
 
 /*
  * The tests aim to check whether the exception is thrown or not, but not whether the number is correctly stored,

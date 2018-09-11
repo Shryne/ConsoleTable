@@ -1,4 +1,4 @@
-package table;
+package table.num;
 
 /**
  * Defines a natural number. It must lie between 0 and 2^31 - 1.
