@@ -27,18 +27,17 @@ public final class Rows implements Content {
 
     @Override
     public void printTo(Media media) {
-        final var maxLength = rows.stream()
-                .map(Row::cellAmount)
-                .max((a, b) -> Math.max(a.intValue(), b.intValue()))
-                .orElse(new Nat(0));
+        final var maxLength = new Max<>(rows, row -> row.cellAmount().intValue());
         for (int i = 0; i < maxLength.intValue(); i++) {
             final var cell = i;
-            final var maxWidth = rows.stream()
-                    .map(it -> it.width(cell))
-                    .max((a, b) -> Math.max(a.intValue(), b.intValue()))
-                    .orElse(new Nat(0));
             rows.forEach(
-                    row -> row.printCell(cell, media, maxWidth)
+                    row -> row.printCell(
+                            cell,
+                            media,
+                            new Nat(
+                                    new Max<>(rows, row1 -> row1.width(cell).intValue())
+                            )
+                    )
             );
         }
     }

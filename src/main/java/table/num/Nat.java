@@ -7,6 +7,20 @@ package table.num;
 public final class Nat extends Number {
     private final int value;
 
+    /**
+     * Primary constructor.
+     * @param value of the Nat.
+     * @throws IllegalArgumentException if the value is smaller than 0.
+     */
+    public Nat(Number value) {
+        this(value.intValue());
+    }
+
+    /**
+     * Primary constructor.
+     * @param value of the Nat.
+     * @throws IllegalArgumentException if the value is smaller than 0.
+     */
     public Nat(int value) {
         if (value < 0) {
             throw new IllegalArgumentException(
